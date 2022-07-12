@@ -1,0 +1,56 @@
+# Maintainer: Fabian Bornschein <fabiscafe-cat-mailbox-dog-org>
+# Contributor: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+options=(debug)
+
+pkgbase=libgweather-4
+pkgname=(libgweather-4 libgweather-4-docs)
+pkgver=4.0.0+r37+ga56a7d9c
+pkgrel=1
+pkgdesc="Location and timezone database and weather-lookup library"
+url="https://wiki.gnome.org/Projects/LibGWeather"
+arch=(x86_64)
+license=(LGPL)
+depends=(libsoup3 geocode-glib dconf)
+makedepends=(gobject-introspection vala git gi-docgen meson python-gobject)
+checkdepends=(python-pylint)
+source=("git+https://gitlab.gnome.org/GNOME/libgweather.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd libgweather
+  git describe --tags | sed 's/[^-]*-g/r&/;s/-/+/g'
+}
+
+prepare() {
+  cd libgweather
+}
+
+build() {
+  arch-meson libgweather build -D gtk_doc=true -D soup2=false
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package_libgweather-4() {
+  provides=(libgweather-4.so libgweather-gtk4)
+  replaces=(libgweather-gtk4)
+  conflicts=(libgweather-gtk4)
+
+  meson install -C build --destdir "$pkgdir"
+
+  mkdir -p doc/usr/share
+  mv {"$pkgdir",doc}/usr/share/doc
+}
+
+package_libgweather-4-docs() {
+  pkgdesc+=" (documentation)"
+  depends=()
+
+  mv doc/* "$pkgdir"
+}
+
+# vim:set sw=2 et:
