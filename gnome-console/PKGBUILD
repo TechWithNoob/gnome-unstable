@@ -1,0 +1,40 @@
+# Maintainer: Fabian Bornschein <fabiscafe-cat-mailbox-dog-org>
+# Contributor: Igor Dyatlov <dyatlov.igor@gmail.com>
+options=(debug)
+
+pkgname=gnome-console
+pkgver=42.1
+pkgrel=1
+pkgdesc="A simple user-friendly terminal emulator for the GNOME desktop"
+arch=('x86_64')
+url="https://gitlab.gnome.org/GNOME/console"
+license=('GPL3')
+depends=(libgtop libhandy vte3)
+makedepends=(appstream-glib git libnautilus-extension meson sassc)
+optdepends=('libnautilus-extension: Nautilus integration')
+_commit=69ec8276292f294add2acd1a15c2e5a5139d6bcc  # branch:main^0
+source=("git+https://gitlab.gnome.org/GNOME/console.git#commit=$_commit")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd console
+  git describe --tags | sed 's/[^-]*-g/r&/;s/-/+/g;s/beta/beta.0/'
+}
+
+prepare() {
+  cd console
+}
+
+build() {
+  arch-meson console build \
+    -D tests=true
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}

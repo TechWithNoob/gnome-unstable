@@ -6,6 +6,7 @@ options=(debug)
 pkgname=gjs
 pkgver=1.73.1
 pkgrel=1
+epoch=2
 pkgdesc="Javascript Bindings for GNOME"
 url="https://wiki.gnome.org/Projects/Gjs"
 arch=(x86_64)

@@ -9,6 +9,10 @@
 - libadwaita 1.2.alpha # compile using libsoup3
 - libgweather 4.0.0 # compile using libsoup3
 - evolution-data-server 3.45.1
+- librest 0.9.1 # compile using libsoup3
+- gedit 43.alpha
+- gnome-initial-setup 43.alpha.1
+- gnome-console 42.0
 - gnome-calendar 43.alpha
 - gnome-control-center 43.alpha
 - gnome-shell 43.alpha
