@@ -11,6 +11,9 @@
 - evolution-data-server 3.45.1
 - librest 0.9.1 # compile using libsoup3
 - gedit 43.alpha
+- gnome-desktop 42.3
+- gnome-calculator 43.alpha
+- gnome-software 43.alpha
 - gnome-initial-setup 43.alpha.1
 - gnome-console 42.0
 - gnome-calendar 43.alpha
