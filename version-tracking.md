@@ -1,7 +1,7 @@
 # Packages
 ## Done
 - at-spi2-core AT_SPI2_CORE_2_45_1
-- geocode-glib 3.26.3+r7+gc670fb9
+- geocode-glib-2 3.26.3+r7+gc670fb9
 - glib-networking 2.74.alpha
 - feedbackd v0.0.0+git20220520
 - gjs 1.73.1
@@ -13,6 +13,8 @@
 - eog 43.alpha
 - epiphany 43.alpha
 - gedit 43.alpha
+- gnome-maps 43.alpha
+- gnome-remote-desktop 43.alpha
 - gnome-desktop 42.3
 - gnome-calculator 43.alpha
 - gnome-software 43.alpha
