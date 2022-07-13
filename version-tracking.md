@@ -10,6 +10,8 @@
 - libgweather 4.0.0 # compile using libsoup3
 - evolution-data-server 3.45.1
 - librest 0.9.1 # compile using libsoup3
+- eog 43.alpha
+- epiphany 43.alpha
 - gedit 43.alpha
 - gnome-desktop 42.3
 - gnome-calculator 43.alpha
@@ -23,3 +25,4 @@
 - mutter 43.alpha
 - orca ORCA_43_ALPHA
 - sofia-sip 1.13.8
+- xdg-desktop-portal-gnome 43.alpha
